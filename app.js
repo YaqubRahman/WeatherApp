@@ -8,7 +8,7 @@ function getWeather(){
     }
 
     const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-    const forcastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
     
     fetch(currentWeatherUrl)
         .then(response => response.json())
@@ -19,7 +19,7 @@ function getWeather(){
             console.error('Error fetching current weather data:', error);
             alert('Error fetching current weather data. Please try again.');
          });
-         
+
 }
 
 function displayWeather(data){
@@ -28,13 +28,7 @@ function displayWeather(data){
         <h2>Weather in ${data.name}</h2>
         <p>Temperature: ${(data.main.temp - 273.15).toFixed(2)}°C</p>
         <p>Weather: ${data.weather[0].description}</p>
-        <p>Humidity: ${data.main.humidity}%</p>
-    `;
+        <p>Humidity: ${data.main.humidity}%</p>`;
 }
 
-
-
-//fetch('https://weatherapi-com.p.rapidapi.com/current.json?q=53.1%2C-0.13')
-//    .then(res => res.json())
-//    .then(data => console.log(data))
 
